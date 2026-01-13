@@ -44,7 +44,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -110,7 +109,6 @@
             }
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -174,7 +172,6 @@
             color: var(--bg);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -389,7 +386,6 @@
             }
         }
 
-        /* Stats Section */
         .stats {
             display: flex;
             justify-content: center;
@@ -419,7 +415,6 @@
             margin-top: 5px;
         }
 
-        /* Features Section */
         .features {
             padding: 100px 20px;
             max-width: 1300px;
@@ -516,7 +511,6 @@
             font-size: 1.05rem;
         }
 
-        /* How To Section */
         .how-to {
             padding: 100px 20px;
             background: linear-gradient(180deg, var(--bg) 0%, var(--card) 50%, var(--bg) 100%);
@@ -615,7 +609,6 @@
             font-size: 1.05rem;
         }
 
-        /* Hotkeys Section */
         .hotkeys {
             padding: 100px 20px;
             max-width: 1000px;
@@ -667,7 +660,6 @@
             font-size: 1.1rem;
         }
 
-        /* Warning */
         .warning-section {
             padding: 60px 20px;
         }
@@ -700,7 +692,6 @@
             line-height: 1.7;
         }
 
-        /* CTA Section */
         .cta {
             padding: 100px 20px;
             text-align: center;
@@ -719,7 +710,6 @@
             margin-bottom: 40px;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -754,7 +744,6 @@
             transform: translateY(-3px);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav {
                 padding: 15px 20px;
@@ -816,7 +805,6 @@
             }
         }
 
-        /* Reviews Section */
         .reviews {
             padding: 100px 20px;
             max-width: 1300px;
@@ -897,7 +885,6 @@
             color: rgba(0, 229, 255, 0.1);
         }
 
-        /* Donation Section */
         .donate-section {
             padding: 100px 20px;
             background: linear-gradient(180deg, var(--card) 0%, var(--bg) 100%);
@@ -1047,7 +1034,6 @@
             font-weight: 600;
         }
 
-        /* Scroll Animations */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(50px);
@@ -1060,7 +1046,7 @@
         }
     </style>
     <script
-        src="https://www.paypal.com/sdk/js?client-id=AWU1eQeSdrm03OLh1SlZRxTRFe6PK7kAr7MSeKEVOE2kgjrO37Am8BGky_LOwO0TueOjlslmHzU_T9nP&currency=USD"></script>
+        src="https://www.paypal.com/sdk/js?client-id=AVupHPLBii9C7rD6s4sz-W6rV8NxNm3dguAIOi1ybrLBvYuF_I_JByx0gUGxl2ucdBQI8ZWT8XktWTw6&currency=USD"></script>
 </head>
 
 <body>
@@ -1344,7 +1330,6 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
     <section class="reviews" id="reviews">
         <div class="section-header animate-on-scroll">
             <span class="section-tag" data-ar="💬 آراء المستخدمين" data-en="💬 User Reviews">💬 آراء المستخدمين</span>
@@ -1470,7 +1455,6 @@
         </a>
     </section>
 
-    <!-- Donation Section -->
     <section class="donate-section" id="donate">
         <div class="donate-container">
             <div class="section-header animate-on-scroll">
@@ -1545,7 +1529,6 @@
             });
         }
 
-        // Donation amount selection
         function selectAmount(amount) {
             donationAmount = amount;
             document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
@@ -1562,7 +1545,6 @@
             }
         }
 
-        // Send Discord notification
         async function sendDiscordNotification(amount, orderId) {
             const now = new Date();
             const timestamp = now.toISOString();
@@ -1609,7 +1591,6 @@
             }
         }
 
-        // PayPal Integration
         paypal.Buttons({
             style: {
                 layout: 'vertical',
@@ -1630,13 +1611,8 @@
             },
             onApprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {
-                    // Show success message
                     document.getElementById('successMessage').style.display = 'block';
-
-                    // Send Discord notification
                     sendDiscordNotification(donationAmount, data.orderID);
-
-                    // Hide success after 10 seconds
                     setTimeout(() => {
                         document.getElementById('successMessage').style.display = 'none';
                     }, 10000);
@@ -1647,7 +1623,6 @@
             }
         }).render('#paypal-button-container');
 
-        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1665,7 +1640,6 @@
             observer.observe(el);
         });
 
-        // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
